@@ -1,0 +1,21 @@
+<div position = "relative">
+  <div position = "relative", style = "width:45%;float:left;margin-left:5%">
+    <h2>Washington Post Feed</h2>
+    <% @wp_feed.items.each do |item| %>
+      <p>
+        <%= link_to item.title, item.link %>
+        <%= item.description.gsub(/<a href="http:\/\/ads.pheedo.*a>/,'').html_safe %>
+      </p>
+    <% end %>
+  </div>
+
+  <div position = "relative", style = "width:45%;float:left;margin-left:5%">
+    <h2>New York Times Feed</h2>
+    <% @nyt_feed.items.each do |item| %>
+      <p>
+        <%= link_to item.title, item.link %>
+        <%= item.description.html_safe %>
+      </p>
+    <% end %>
+  </div>
+</div>
